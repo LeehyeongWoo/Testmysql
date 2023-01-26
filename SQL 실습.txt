@@ -1,0 +1,18 @@
+create database leehw;
+
+CREATE TABLE testTable(                           
+  id INT(11) NOT NULL AUTO_INCREMENT,               
+  name VARCHAR(20) NOT NULL,                    
+  ouccupation VARCHAR(20) NULL,              
+  height SMALLINT,                             
+  profile TEXT NULL,                                
+  date  DATETIME,                                    
+  CONSTRAINT testTable_PK PRIMARY KEY(id)      
+);
+
+alter table testTable
+drop ouccupation;
+
+create user 'ME@localhost' identifed by '0000';
+grant all privileges on *.* to 'ME@localhost';
+
