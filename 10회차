@@ -1,0 +1,22 @@
+CREATE FUNCTION `GET_NAME`(
+    NAME VARCHAR(20)
+    , AGE INTEGER -- 파라미터 선언
+) RETURNS varchar(20) -- 반환할 데이터타입
+BEGIN
+    DECLARE AGE_TITLE VARCHAR(20);
+    DECLARE NAME_TITLE VARCHAR(20);
+    DECLARE RETURN_VALUE VARCHAR(20); -- 변수 선언
+    
+    SELECT CONCAT(NAME, ' IS ') 
+      INTO NAME_TITLE; -- 조회한 컬럼은 INTO로 변수에 넣어야 함
+    
+    IF(AGE > 30) THEN
+    	SET AGE_TITLE = 'OLD'; -- 값 할당
+    ELSE
+    	SET AGE_TITLE = 'YOUNG';
+    END IF;
+    
+    SET RETURN_VALUE = CONCAT(NAME_TITLE, AGE_TITLE);
+
+    RETURN RETURN_VALUE;
+END
